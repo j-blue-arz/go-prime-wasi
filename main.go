@@ -6,6 +6,12 @@ import (
 	"os"
 )
 
+//go:export check
+func check(num int64) bool {
+	number := big.NewInt(num)
+	return number.ProbablyPrime(10)
+}
+
 func main() {
 	number := new(big.Int)
 	_, err := fmt.Sscan(os.Args[1], number)
