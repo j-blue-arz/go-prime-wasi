@@ -1,0 +1,13 @@
+{
+  "name": "browser-wasi",
+  "version": "0.1.0",
+  "source": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Julian Arz",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.8.1"
+  }
+}
