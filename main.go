@@ -29,5 +29,5 @@ func checknum(num int64) bool {
 }
 
 func main() {
-	print(checkstr(os.Args[1]))
+	print(checkstr("7"))
 }

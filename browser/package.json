@@ -1,13 +1,18 @@
 {
-  "name": "browser-wasi",
+  "name": "go-prime-wasi-browser",
   "version": "0.1.0",
-  "source": "src/index.html",
+  "description": "",
+  "main": "src/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --progress"
   },
   "author": "Julian Arz",
   "license": "MIT",
   "devDependencies": {
-    "parcel": "^2.8.1"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "@wasmer/wasi": "^1.2.2"
   }
 }
