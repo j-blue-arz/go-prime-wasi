@@ -1,18 +1,18 @@
 {
-  "name": "go-prime-wasi-browser",
-  "version": "0.1.0",
-  "description": "",
-  "main": "src/index.html",
-  "scripts": {
-    "build": "webpack --progress"
-  },
-  "author": "Julian Arz",
-  "license": "MIT",
-  "devDependencies": {
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
-  },
-  "dependencies": {
-    "@wasmer/wasi": "^1.2.2"
-  }
+    "name": "go-prime-wasi-browser",
+    "version": "0.1.0",
+    "description": "",
+    "main": "src/index.html",
+    "scripts": {
+        "build": "webpack --progress"
+    },
+    "author": "Julian Arz",
+    "license": "MIT",
+    "devDependencies": {
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1"
+    },
+    "dependencies": {
+        "@wasmer/wasi": "^1.2.2"
+    }
 }
