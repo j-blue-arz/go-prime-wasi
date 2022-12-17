@@ -4,12 +4,9 @@ export async function computePrime() {
     await init()
 
     let wasi = new WASI({
-        env: {
-            // 'ENVVAR1': '1',
-            // 'ENVVAR2': '2'
-        },
+        env: {},
         args: [
-            // 'command', 'arg1', 'arg2'
+            'prime.wasm', '854654651354613023354657879465120356462134'
         ],
     })
 
@@ -19,7 +16,8 @@ export async function computePrime() {
     await wasi.instantiate(module, {})
 
     // Run the start function
-    let exitCode = wasi.start()
+    
+    let exitCode = wasi.start();
     let stdout = wasi.getStdoutString()
 
     // This should print "hello world (exit code: 0)"

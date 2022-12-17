@@ -6,10 +6,9 @@ import (
 	"os"
 )
 
-//go:export checkstr
-func checkstr(num string) string {
+func check(num string) string {
 	number := new(big.Int)
-	_, err := fmt.Sscan(os.Args[1], number)
+	_, err := fmt.Sscan(num, number)
 	if err != nil {
 		return "error scanning value: " + err.Error()
 	} else {
@@ -22,12 +21,7 @@ func checkstr(num string) string {
 	}
 }
 
-//go:export checknum
-func checknum(num int64) bool {
-	number := big.NewInt(num)
-	return number.ProbablyPrime(10)
-}
-
 func main() {
-	print(checkstr("7"))
+	fmt.Println(check(os.Args[1]))
+	os.Exit(0)
 }
