@@ -4,12 +4,11 @@ import java.util.Objects;
 import org.graalvm.polyglot.*;
 import org.graalvm.polyglot.io.ByteSequence;
 
-public class App {
+public class Prime {
 
     public static void main(String[] args) throws Exception {
-        //Load the WASM contents into a byte array
         byte[] binary = loadWasm();
-        Context.Builder contextBuilder = Context.newBuilder("wasm");
+        Context.Builder contextBuilder = Context.newBuilder("wasm").option("wasm.Builtins", "wasi_snapshot_preview1").arguments("wasm", new String[]{"prime.wasm", "7"});
         Source.Builder sourceBuilder = Source.newBuilder(
                 "wasm",
                 ByteSequence.create(binary),
@@ -24,7 +23,14 @@ public class App {
                 .getBindings("wasm")
                 .getMember("main")
                 .getMember("_start");
-        mainFunction.execute();
+        try {
+            mainFunction.execute();
+        } catch (PolyglotException e) {
+            if (!e.isExit()) {
+                throw e;
+            }
+        }
+
     }
 
     private static byte[] loadWasm() throws IOException {
