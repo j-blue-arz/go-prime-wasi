@@ -6,22 +6,17 @@ import (
 	"os"
 )
 
-func check(num string) string {
+func main() {
 	number := new(big.Int)
-	_, err := fmt.Sscan(num, number)
+	_, err := fmt.Sscan(os.Args[1], number)
 	if err != nil {
-		return "error scanning value: " + err.Error()
+		fmt.Println("error scanning value: " + err.Error())
 	} else {
-		isPrime := number.ProbablyPrime(10)
-		if isPrime {
-			return num + " is probably prime\n"
+		if number.ProbablyPrime(10) {
+			fmt.Println(os.Args[1] + " is probably prime\n")
 		} else {
-			return num + " is not prime\n"
+			fmt.Println(os.Args[1] + " is not prime\n")
 		}
 	}
-}
-
-func main() {
-	fmt.Println(check(os.Args[1]))
 	os.Exit(0)
 }
