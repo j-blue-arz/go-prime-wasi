@@ -8,7 +8,9 @@ public class Prime {
 
     public static void main(String[] args) throws Exception {
         byte[] binary = loadWasm();
-        Context.Builder contextBuilder = Context.newBuilder("wasm").option("wasm.Builtins", "wasi_snapshot_preview1").arguments("wasm", new String[]{"prime.wasm", "7"});
+        Context.Builder contextBuilder = Context.newBuilder("wasm")//
+                .option("wasm.Builtins", "wasi_snapshot_preview1").//
+                arguments("wasm", new String[]{"prime.wasm", args[0]});
         Source.Builder sourceBuilder = Source.newBuilder(
                 "wasm",
                 ByteSequence.create(binary),
