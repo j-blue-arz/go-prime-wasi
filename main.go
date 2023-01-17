@@ -18,5 +18,4 @@ func main() {
 			fmt.Println(os.Args[1] + " is not prime\n")
 		}
 	}
-	os.Exit(0)
 }
