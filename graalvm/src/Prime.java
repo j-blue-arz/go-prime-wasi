@@ -1,7 +1,5 @@
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Objects;
 import org.graalvm.polyglot.*;
 
 public class Prime {
@@ -28,14 +26,5 @@ public class Prime {
                     .getMember("_start");
             mainFunction.execute();
         } 
-    }
-
-    private static byte[] loadWasm() throws IOException {
-        try ( var wasm = Thread
-                .currentThread()
-                .getContextClassLoader()
-                .getResourceAsStream("prime.wasm")) {
-            return Objects.requireNonNull(wasm).readAllBytes();
-        }
     }
 }
